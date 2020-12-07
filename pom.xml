@@ -77,6 +77,13 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
+        <profile>
+            <id>pre</id>
+            <properties>
+                <spring.profiles.active>pre</spring.profiles.active>
+                <log4j.appenders.path>logs</log4j.appenders.path>
+            </properties>
+        </profile>
     </profiles>
 
 </project>
