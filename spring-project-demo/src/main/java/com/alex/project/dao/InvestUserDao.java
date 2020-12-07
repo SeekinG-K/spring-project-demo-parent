@@ -4,7 +4,7 @@ package com.alex.project.dao;
 
 import com.alex.project.model.db.InvestUser;
 import com.alex.project.model.request.index.UserRequest;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 

@@ -2,8 +2,8 @@ spring:
   datasource:
     username: ENC(ncPHYMSClFexP8TEt5HlYg==)
     password: ENC(Is2LT3vI6kcXxamc2S5Apw==)
-    url: jdbc:mysql://127.0.0.1:3306/invest_dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:p6spy:mysql://127.0.0.1:3306/invest_dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driverClassName: com.p6spy.engine.spy.P6SpyDriver
 jasypt:
   encryptor:
     password: invest

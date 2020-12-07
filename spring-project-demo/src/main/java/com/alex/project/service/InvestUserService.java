@@ -1,7 +1,8 @@
 package com.alex.project.service;
 import com.alex.project.model.db.InvestUser;
 import com.alex.project.model.request.index.UserRequest;
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 import java.util.Map;

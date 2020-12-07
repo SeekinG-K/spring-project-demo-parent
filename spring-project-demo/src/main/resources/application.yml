@@ -7,7 +7,6 @@ spring:
     time-zone: UTC
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: true
-
 mybatis-plus:
   type-aliases-package: com.alex.project.model.*
   mapper-locations: classpath:mapper/**/*.xml
@@ -22,3 +21,5 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  config: classpath:config/logback-spring.xml

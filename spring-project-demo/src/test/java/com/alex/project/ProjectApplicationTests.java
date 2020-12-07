@@ -4,8 +4,7 @@ import com.alex.project.dao.InvestUserDao;
 import com.alex.project.model.db.InvestUser;
 import com.alex.project.model.request.index.UserRequest;
 import com.alex.project.service.InvestUserService;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +36,7 @@ class ProjectApplicationTests {
      */
     @Test
     void streamTest() {
-        List<InvestUser> investUsersList = investUserService.selectList(new EntityWrapper<>());
+        List<InvestUser> investUsersList = investUserService.list();
         investUsersList.forEach(System.out::println);
 
         //User entry some fields to Map

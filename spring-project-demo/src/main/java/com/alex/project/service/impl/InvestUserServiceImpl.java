@@ -6,7 +6,7 @@ import com.alex.project.dao.InvestUserDao;
 import com.alex.project.model.db.InvestUser;
 import com.alex.project.model.request.index.UserRequest;
 import com.alex.project.service.InvestUserService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

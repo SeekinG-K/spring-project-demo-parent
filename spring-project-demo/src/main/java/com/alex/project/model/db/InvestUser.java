@@ -1,7 +1,6 @@
 
 package com.alex.project.model.db;
-
-import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.ToString;
 
