@@ -7,6 +7,7 @@ import com.alex.project.service.InvestUserService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -92,6 +93,15 @@ class ProjectApplicationTests {
                 .map(InvestUser::getMoney).reduce(BigDecimal.ONE, BigDecimal::multiply);
         String format = decimalFormat.format(moneyMultiply);
         System.out.println("moneyMultiply: " + format);
+
+        // stream join, the field is not be null!
+        String collect = String.join(",", investUsersList.stream().map(InvestUser::getName).filter(StringUtils::isNotBlank).collect(toSet()));
+        System.out.println(collect);
+
+        //partitioningBy a condition
+        Map<Boolean, List<InvestUser>> partitionMap = investUsersList.stream().collect(partitioningBy(x -> x.getMoney().compareTo(new BigDecimal(250)) > 0));
+        partitionMap.forEach((aBoolean, investUsers) -> System.out.println(aBoolean + " : " + investUsers));
+
     }
 
 
