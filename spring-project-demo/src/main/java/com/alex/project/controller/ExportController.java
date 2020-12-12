@@ -22,7 +22,7 @@ public class ExportController {
     public String exportDoc() {
         Map<String, Object> dataMap = new HashMap<>();
         getData(dataMap);
-        String templateFile = "export/template.ftl";
+        String templateFile = "export/fundTemplate.ftl";
         String exportFile = "C:\\Users\\alex\\Desktop\\export\\exportDoc.doc";
         try {
             wordExportUtil.createDocFile(templateFile, dataMap, exportFile);

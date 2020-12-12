@@ -779,693 +779,219 @@
                             <#list fundList as eachData>
                             <#--eachData 是一个Map 对象, 取出来eachData 的Key-->
                                 <#list eachData?keys as eachDataKey>
+                                    <#assign ll = eachData["${eachDataKey}"]?size>
                                 <#--取出来 取出来eachData value 数据 ==valueDatah是一个map对象 -->
-                                    <#list eachData["${eachDataKey}"] as valueData>
-                                    <#--取出来 取出来eachData value 数据 ==valueDatah是一个List对象 -->
-                                        <#list valueData?keys as valueDataKey>
-                                        <#--此时 finalValueData是List-->
-                                            <#list valueData["${valueDataKey}"] as finalValueData>
-                                                <#assign ll = eachData["${eachDataKey}"]?size>
-                                                <w:tr>
-                                                    <w:tblPrEx>
-                                                        <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
-                                                        <w:tblCellMar>
-                                                            <w:top w:w="0" w:type="dxa"/>
-                                                            <w:left w:w="0" w:type="dxa"/>
-                                                            <w:bottom w:w="0" w:type="dxa"/>
-                                                            <w:right w:w="0" w:type="dxa"/>
-                                                        </w:tblCellMar>
-                                                    </w:tblPrEx>
-                                                    <w:trPr>
-                                                        <w:trHeight w:val="300" w:hRule="atLeast"/>
-                                                    </w:trPr>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="625" w:type="pct"/>
-                                                            <#if (ll > 0)>
-                                                                <#if (valueData_index == 0)>
-                                                                    <w:vMerge w:val="restart"/>
-                                                                </#if>
-                                                                <#if (valueData_index != 0)>
-                                                                    <w:vMerge/>
-                                                                </#if>
-                                                            </#if>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <#if (valueData_index == 0)>
-                                                                    <w:t> ${eachDataKey} </w:t>
-                                                                </#if>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="499" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>${valueDataKey}</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="495" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>食品饮料</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="393" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>大金融</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="365" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>TMT</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="362" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>上游</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="430" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>家用电器</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="545" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>医药生物</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="408" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>泛消费</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="529" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>中游制造</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                    <w:tc>
-                                                        <w:tcPr>
-                                                            <w:tcW w:w="343" w:type="pct"/>
-                                                            <w:tcBorders>
-                                                                <w:top w:val="single" w:color="000000" w:sz="4"
-                                                                       w:space="0"/>
-                                                                <w:left w:val="single" w:color="000000" w:sz="4"
-                                                                        w:space="0"/>
-                                                                <w:bottom w:val="single" w:color="000000" w:sz="4"
-                                                                          w:space="0"/>
-                                                                <w:right w:val="single" w:color="000000" w:sz="4"
-                                                                         w:space="0"/>
-                                                            </w:tcBorders>
-                                                            <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
-                                                            <w:noWrap/>
-                                                            <w:tcMar>
-                                                                <w:top w:w="10" w:type="dxa"/>
-                                                                <w:left w:w="10" w:type="dxa"/>
-                                                                <w:right w:w="10" w:type="dxa"/>
-                                                            </w:tcMar>
-                                                            <w:vAlign w:val="center"/>
-                                                        </w:tcPr>
-                                                        <w:p>
-                                                            <w:pPr>
-                                                                <w:keepNext w:val="0"/>
-                                                                <w:keepLines w:val="0"/>
-                                                                <w:widowControl/>
-                                                                <w:suppressLineNumbers w:val="0"/>
-                                                                <w:jc w:val="center"/>
-                                                                <w:textAlignment w:val="center"/>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                </w:rPr>
-                                                            </w:pPr>
-                                                            <w:r>
-                                                                <w:rPr>
-                                                                    <w:rFonts w:hint="eastAsia" w:ascii="宋体"
-                                                                              w:hAnsi="宋体"
-                                                                              w:eastAsia="宋体"
-                                                                              w:cs="宋体"/>
-                                                                    <w:i w:val="0"/>
-                                                                    <w:color w:val="000000"/>
-                                                                    <w:kern w:val="0"/>
-                                                                    <w:sz w:val="21"/>
-                                                                    <w:szCs w:val="21"/>
-                                                                    <w:u w:val="none"/>
-                                                                    <w:lang w:val="en-US" w:eastAsia="zh-CN"
-                                                                            w:bidi="ar"/>
-                                                                </w:rPr>
-                                                                <w:t>防御</w:t>
-                                                            </w:r>
-                                                        </w:p>
-                                                    </w:tc>
-                                                </w:tr>
-                                            </#list>
-                                        </#list>
+                                    <#list eachData["${eachDataKey}"] as list0>
+
+                                    <#--此时 finalValueData是List-->
+
+                                        <w:tr>
+                                            <w:tblPrEx>
+                                                <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+                                                <w:tblCellMar>
+                                                    <w:top w:w="0" w:type="dxa"/>
+                                                    <w:left w:w="0" w:type="dxa"/>
+                                                    <w:bottom w:w="0" w:type="dxa"/>
+                                                    <w:right w:w="0" w:type="dxa"/>
+                                                </w:tblCellMar>
+                                            </w:tblPrEx>
+                                            <w:trPr>
+                                                <w:trHeight w:val="300" w:hRule="atLeast"/>
+                                            </w:trPr>
+                                            <w:tc>
+                                                <w:tcPr>
+                                                    <w:tcW w:w="625" w:type="pct"/>
+                                                    <#if (ll > 0)>
+                                                        <#if (list0_index == 0)>
+                                                            <w:vMerge w:val="restart"/>
+                                                        </#if>
+                                                        <#if (list0_index != 0)>
+                                                            <w:vMerge/>
+                                                        </#if>
+                                                    </#if>
+                                                    <w:vAlign w:val="center"/>
+                                                    <w:tcW w:w="625" w:type="pct"/>
+                                                    <w:vMerge w:val="restart"/>
+                                                    <w:tcBorders>
+                                                        <w:top w:val="single" w:color="000000" w:sz="4" w:space="0"/>
+                                                        <w:left w:val="single" w:color="000000" w:sz="4" w:space="0"/>
+                                                        <w:bottom w:val="single" w:color="000000" w:sz="4" w:space="0"/>
+                                                        <w:right w:val="single" w:color="000000" w:sz="4" w:space="0"/>
+                                                    </w:tcBorders>
+                                                    <w:shd w:val="clear" w:color="auto" w:fill="5B9BD5"/>
+                                                    <w:noWrap/>
+                                                    <w:tcMar>
+                                                        <w:top w:w="10" w:type="dxa"/>
+                                                        <w:left w:w="10" w:type="dxa"/>
+                                                        <w:right w:w="10" w:type="dxa"/>
+                                                    </w:tcMar>
+                                                    <w:vAlign w:val="center"/>
+                                                </w:tcPr>
+                                                <w:p>
+                                                    <w:pPr>
+                                                        <w:keepNext w:val="0"/>
+                                                        <w:keepLines w:val="0"/>
+                                                        <w:widowControl/>
+                                                        <w:suppressLineNumbers w:val="0"/>
+                                                        <w:jc w:val="center"/>
+                                                        <w:textAlignment w:val="center"/>
+                                                        <w:rPr>
+                                                            <w:rFonts w:hint="eastAsia" w:ascii="宋体"
+                                                                      w:hAnsi="宋体"
+                                                                      w:eastAsia="宋体"
+                                                                      w:cs="宋体"/>
+                                                            <w:i w:val="0"/>
+                                                            <w:color w:val="000000"/>
+                                                            <w:sz w:val="21"/>
+                                                            <w:szCs w:val="21"/>
+                                                            <w:u w:val="none"/>
+                                                        </w:rPr>
+                                                    </w:pPr>
+                                                    <w:r>
+                                                        <w:rPr>
+                                                            <w:rFonts w:hint="eastAsia" w:ascii="宋体"
+                                                                      w:hAnsi="宋体"
+                                                                      w:eastAsia="宋体"
+                                                                      w:cs="宋体"/>
+                                                            <w:i w:val="0"/>
+                                                            <w:color w:val="000000"/>
+                                                            <w:kern w:val="0"/>
+                                                            <w:sz w:val="21"/>
+                                                            <w:szCs w:val="21"/>
+                                                            <w:u w:val="none"/>
+                                                            <w:lang w:val="en-US" w:eastAsia="zh-CN"
+                                                                    w:bidi="ar"/>
+                                                        </w:rPr>
+                                                        <#if (list0_index == 0)>
+                                                            <w:t> ${eachDataKey} </w:t>
+                                                        </#if>
+                                                    </w:r>
+                                                </w:p>
+                                            </w:tc>
+                                            <w:tc>
+                                                <w:tcPr>
+                                                    <w:tcW w:w="499" w:type="pct"/>
+                                                    <w:tcBorders>
+                                                        <w:top w:val="single" w:color="000000" w:sz="4"
+                                                               w:space="0"/>
+                                                        <w:left w:val="single" w:color="000000" w:sz="4"
+                                                                w:space="0"/>
+                                                        <w:bottom w:val="single" w:color="000000" w:sz="4"
+                                                                  w:space="0"/>
+                                                        <w:right w:val="single" w:color="000000" w:sz="4"
+                                                                 w:space="0"/>
+                                                    </w:tcBorders>
+                                                    <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
+                                                    <w:noWrap/>
+                                                    <w:tcMar>
+                                                        <w:top w:w="10" w:type="dxa"/>
+                                                        <w:left w:w="10" w:type="dxa"/>
+                                                        <w:right w:w="10" w:type="dxa"/>
+                                                    </w:tcMar>
+                                                    <w:vAlign w:val="center"/>
+                                                </w:tcPr>
+                                                <w:p>
+                                                    <w:pPr>
+                                                        <w:keepNext w:val="0"/>
+                                                        <w:keepLines w:val="0"/>
+                                                        <w:widowControl/>
+                                                        <w:suppressLineNumbers w:val="0"/>
+                                                        <w:jc w:val="center"/>
+                                                        <w:textAlignment w:val="center"/>
+                                                        <w:rPr>
+                                                            <w:rFonts w:hint="eastAsia" w:ascii="宋体"
+                                                                      w:hAnsi="宋体"
+                                                                      w:eastAsia="宋体"
+                                                                      w:cs="宋体"/>
+                                                            <w:i w:val="0"/>
+                                                            <w:color w:val="000000"/>
+                                                            <w:sz w:val="21"/>
+                                                            <w:szCs w:val="21"/>
+                                                            <w:u w:val="none"/>
+                                                        </w:rPr>
+                                                    </w:pPr>
+                                                    <w:r>
+                                                        <w:rPr>
+                                                            <w:rFonts w:hint="eastAsia" w:ascii="宋体"
+                                                                      w:hAnsi="宋体"
+                                                                      w:eastAsia="宋体"
+                                                                      w:cs="宋体"/>
+                                                            <w:i w:val="0"/>
+                                                            <w:color w:val="000000"/>
+                                                            <w:kern w:val="0"/>
+                                                            <w:sz w:val="21"/>
+                                                            <w:szCs w:val="21"/>
+                                                            <w:u w:val="none"/>
+                                                            <w:lang w:val="en-US" w:eastAsia="zh-CN"
+                                                                    w:bidi="ar"/>
+                                                        </w:rPr>
+                                                        <w:t>${list0.dataHeader}</w:t>
+                                                    </w:r>
+                                                </w:p>
+                                            </w:tc>
+                                            <w:tc>
+                                                <w:tcPr>
+                                                    <w:tcW w:w="495" w:type="pct"/>
+                                                    <w:tcBorders>
+                                                        <w:top w:val="single" w:color="000000" w:sz="4"
+                                                               w:space="0"/>
+                                                        <w:left w:val="single" w:color="000000" w:sz="4"
+                                                                w:space="0"/>
+                                                        <w:bottom w:val="single" w:color="000000" w:sz="4"
+                                                                  w:space="0"/>
+                                                        <w:right w:val="single" w:color="000000" w:sz="4"
+                                                                 w:space="0"/>
+                                                    </w:tcBorders>
+                                                    <w:shd w:val="clear" w:color="auto" w:fill="DDEBF7"/>
+                                                    <w:noWrap/>
+                                                    <w:tcMar>
+                                                        <w:top w:w="10" w:type="dxa"/>
+                                                        <w:left w:w="10" w:type="dxa"/>
+                                                        <w:right w:w="10" w:type="dxa"/>
+                                                    </w:tcMar>
+                                                    <w:vAlign w:val="center"/>
+                                                </w:tcPr>
+                                                <w:p>
+                                                    <w:pPr>
+                                                        <w:keepNext w:val="0"/>
+                                                        <w:keepLines w:val="0"/>
+                                                        <w:widowControl/>
+                                                        <w:suppressLineNumbers w:val="0"/>
+                                                        <w:jc w:val="center"/>
+                                                        <w:textAlignment w:val="center"/>
+                                                        <w:rPr>
+                                                            <w:rFonts w:hint="eastAsia" w:ascii="宋体"
+                                                                      w:hAnsi="宋体"
+                                                                      w:eastAsia="宋体"
+                                                                      w:cs="宋体"/>
+                                                            <w:i w:val="0"/>
+                                                            <w:color w:val="000000"/>
+                                                            <w:sz w:val="21"/>
+                                                            <w:szCs w:val="21"/>
+                                                            <w:u w:val="none"/>
+                                                        </w:rPr>
+                                                    </w:pPr>
+                                                    <w:r>
+                                                        <w:rPr>
+                                                            <w:rFonts w:hint="eastAsia" w:ascii="宋体"
+                                                                      w:hAnsi="宋体"
+                                                                      w:eastAsia="宋体"
+                                                                      w:cs="宋体"/>
+                                                            <w:i w:val="0"/>
+                                                            <w:color w:val="000000"/>
+                                                            <w:kern w:val="0"/>
+                                                            <w:sz w:val="21"/>
+                                                            <w:szCs w:val="21"/>
+                                                            <w:u w:val="none"/>
+                                                            <w:lang w:val="en-US" w:eastAsia="zh-CN"
+                                                                    w:bidi="ar"/>
+                                                        </w:rPr>
+                                                        <w:t>${list0.data0}</w:t>
+                                                    </w:r>
+                                                </w:p>
+                                            </w:tc>
+                                        </w:tr>
+
                                     </#list>
                                 </#list>
                             </#list>

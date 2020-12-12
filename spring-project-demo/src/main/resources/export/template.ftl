@@ -127,68 +127,21 @@
                                     <w:p>
                                         <w:pPr>
                                             <w:rPr>
+                                                <w:rFonts w:hint="default" w:eastAsia="宋体"/>
                                                 <w:vertAlign w:val="baseline"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                </w:tc>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="2841" w:type="dxa"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:jc w:val="center"/>
-                                            <w:rPr>
-                                                <w:vertAlign w:val="baseline"/>
+                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                                             </w:rPr>
                                         </w:pPr>
                                         <w:r>
-                                            <w:pict>
-                                                <v:shape id="_x0000_i1026" o:spt="75" type="#_x0000_t75"
-                                                         style="height:64.8pt;width:66.6pt;" filled="f"
-                                                         o:preferrelative="t"
-                                                         stroked="f" coordsize="21600,21600">
-                                                    <v:path/>
-                                                    <v:fill on="f" focussize="0,0"/>
-                                                    <v:stroke on="f"/>
-                                                    <v:imagedata r:id="rId4" o:title=""/>
-                                                    <o:lock v:ext="edit" aspectratio="t"/>
-                                                    <w10:wrap type="none"/>
-                                                    <w10:anchorlock/>
-                                                </v:shape>
-                                            </w:pict>
+                                            <w:rPr>
+                                                <w:rFonts w:hint="eastAsia"/>
+                                                <w:vertAlign w:val="baseline"/>
+                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
+                                            </w:rPr>
+                                            <w:t>${fund[0]}</w:t>
                                         </w:r>
                                     </w:p>
                                 </w:tc>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="2841" w:type="dxa"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:rPr>
-                                                <w:vertAlign w:val="baseline"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                    </w:p>
-                                </w:tc>
-                            </w:tr>
-                            <w:tr>
-                                <w:tblPrEx>
-                                    <w:tblBorders>
-                                        <w:top w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                        <w:left w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                        <w:bottom w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                        <w:right w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                        <w:insideH w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                        <w:insideV w:val="single" w:color="auto" w:sz="4" w:space="0"/>
-                                    </w:tblBorders>
-                                    <w:tblCellMar>
-                                        <w:left w:w="108" w:type="dxa"/>
-                                        <w:right w:w="108" w:type="dxa"/>
-                                    </w:tblCellMar>
-                                </w:tblPrEx>
                                 <w:tc>
                                     <w:tcPr>
                                         <w:tcW w:w="2840" w:type="dxa"/>
@@ -207,42 +160,8 @@
                                                 <w:vertAlign w:val="baseline"/>
                                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                                             </w:rPr>
-                                            <w:t>${fund.fundName}</w:t>
+                                            <w:t>${fund[1]}</w:t>
                                         </w:r>
-                                    </w:p>
-                                </w:tc>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="2841" w:type="dxa"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="default" w:eastAsia="宋体"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
-                                            </w:rPr>
-                                        </w:pPr>
-                                        <w:r>
-                                            <w:rPr>
-                                                <w:rFonts w:hint="eastAsia"/>
-                                                <w:vertAlign w:val="baseline"/>
-                                                <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
-                                            </w:rPr>
-                                            <w:t>${fund.fundCode}</w:t>
-                                        </w:r>
-                                    </w:p>
-                                </w:tc>
-                                <w:tc>
-                                    <w:tcPr>
-                                        <w:tcW w:w="2841" w:type="dxa"/>
-                                    </w:tcPr>
-                                    <w:p>
-                                        <w:pPr>
-                                            <w:rPr>
-                                                <w:vertAlign w:val="baseline"/>
-                                            </w:rPr>
-                                        </w:pPr>
                                     </w:p>
                                 </w:tc>
                             </w:tr>
