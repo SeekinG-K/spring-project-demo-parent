@@ -90,6 +90,11 @@ class ProjectApplicationTests {
             linkedListMap.forEach(System.out::println);
         });
 
+        //groupingBy to linkedList, keep the original list order, and get A sorted LinkedHashMap
+        LinkedHashMap<Long, Map<Long, InvestUser>> c1 = investUsersList.stream()
+                .collect(groupingBy(InvestUser::getId, LinkedHashMap::new, toMap(InvestUser::getId, Function.identity(), (k1, k2) -> k2)));
+
+
         //user entry a filed to add
         BigDecimal moneyAdd = investUsersList.stream().map(InvestUser::getMoney).reduce(BigDecimal.ZERO, BigDecimal::add).setScale(4, BigDecimal.ROUND_HALF_UP);
         System.out.println("moneyAdd: " + moneyAdd);
