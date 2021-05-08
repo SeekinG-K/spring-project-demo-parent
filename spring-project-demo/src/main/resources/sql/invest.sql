@@ -18,23 +18,6 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for a
--- ----------------------------
-DROP TABLE IF EXISTS `a`;
-CREATE TABLE `a`  (
-  `id` int(11) NOT NULL,
-  `group_id` int(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of a
--- ----------------------------
-INSERT INTO `a` VALUES (1, 1);
-INSERT INTO `a` VALUES (2, 1);
-INSERT INTO `a` VALUES (3, 2);
-
--- ----------------------------
 -- Table structure for invest_books
 -- ----------------------------
 DROP TABLE IF EXISTS `invest_books`;
