@@ -1,25 +1,34 @@
 package com.alex.project;
 
+import com.alex.project.component.util.SpringUtil;
+import com.alex.project.controller.ExportController;
 import com.alex.project.dao.InvestUserDao;
 import com.alex.project.model.db.InvestUser;
 import com.alex.project.model.request.index.UserRequest;
+import com.alex.project.service.InvestFundMainService;
 import com.alex.project.service.InvestUserService;
+import com.alex.project.service.core.IBaseDataSource;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
+import org.jasypt.util.text.BasicTextEncryptor;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.lang.NonNull;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Slf4j
 class ProjectApplicationTests {
 
     @Autowired
@@ -27,9 +36,18 @@ class ProjectApplicationTests {
 
     @Autowired
     private InvestUserDao investUserDao;
+
     @Test
     void contextLoads() {
-
+        String context = "基金:[fundName]([fundCode])";
+        Supplier<ExportController> supplier = ExportController::new;
+        Supplier<String> s1 = String::new;
+        ExportController exportController = supplier.get();
+        System.out.println(exportController);
+        System.out.println(1 << 1);
+        Integer a1 = null;
+        String s = Integer.toString(10000, 16);
+        System.out.println(s);
     }
 
     /**
@@ -41,12 +59,12 @@ class ProjectApplicationTests {
         investUsersList.forEach(System.out::println);
 
         //User entry some fields to Map
-        Map<Long, String> investUsersKeyMap = investUsersList.stream().collect(Collectors.toMap(InvestUser::getId, InvestUser::getName));
+        Map<Long, String> investUsersKeyMap = investUsersList.stream().collect(Collectors.toMap(InvestUser::getId, InvestUser::getUserName));
         investUsersKeyMap.forEach((id, name) -> System.out.println(id + " : " + name));
 
         InvestUser investUser = new InvestUser();
         investUser.setId(1L);
-        investUser.setName("tom");
+        investUser.setUserName("tom");
         investUser.setPassword("123456");
         investUsersList.add(investUser);
 
@@ -108,7 +126,7 @@ class ProjectApplicationTests {
         System.out.println("moneyMultiply: " + format);
 
         // stream join, the field is not be null!
-        String collect = String.join(",", investUsersList.stream().map(InvestUser::getName).filter(StringUtils::isNotBlank).collect(toSet()));
+        String collect = String.join(",", investUsersList.stream().map(InvestUser::getUserName).filter(StringUtils::isNotBlank).collect(toSet()));
         System.out.println(collect);
 
         //partitioningBy a condition
@@ -123,8 +141,8 @@ class ProjectApplicationTests {
 
         // Test query investUserMap
         Map<Long, InvestUser> investUserMap = investUserService.queryIdAndNameMap();
-        investUserMap.forEach((id, user) ->{
-            System.out.println(id + " : "+ user);
+        investUserMap.forEach((id, user) -> {
+            System.out.println(id + " : " + user);
         });
 
         UserRequest userRequest = new UserRequest();
@@ -140,6 +158,29 @@ class ProjectApplicationTests {
         result.setRecords(investUsers);
         result.setTotal(size);
         System.out.println(result);
+    }
+
+    @Test
+    public void getPasswordTest() {
+        BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+        //加密所需的salt(盐)
+        textEncryptor.setPassword("invest");
+        //要加密的数据（数据库的用户名或密码）
+        String username = textEncryptor.encrypt("root");
+        System.out.println("username:" + username);
+    }
+
+    @Test
+    public void reflectionTest() {
+        IBaseDataSource userService = SpringUtil.getBean(InvestUserService.class);
+        IBaseDataSource fundMainService = SpringUtil.getBean(InvestFundMainService.class);
+        ArrayList<IBaseDataSource> iBaseDataSources = Lists.newArrayList();
+        iBaseDataSources.add(userService);
+        iBaseDataSources.add(fundMainService);
+        iBaseDataSources.forEach(iBaseDataSource -> {
+            String baseDataSource = iBaseDataSource.getBaseDataSource();
+            log.info("当前Bean对象执行：{}", baseDataSource);
+        });
     }
 
 }
